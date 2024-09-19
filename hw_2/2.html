@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <title></title>
+    <script>
+        const res = {
+            base: 2,
+            calculate: function (y) {
+                if (typeof y !== 'number' || isNaN(y)) {
+                    return 'Введите корректное число';
+                }
+                return Math.pow(y - 2, y);
+            }
+        };
+
+        function handle() {
+            const y = parseFloat(document.getElementById('y').value);
+            const result = res.calculate(y);
+            document.getElementById('result').innerText = `Результат: ${result}`;
+        }
+    </script>
+</head>
+
+<body>
+	<p>Перед вами объект, который содержит значение основания. Добавьте в объект метод, который принимает от пользователя число Y, как параметр и возводит число Y - 2 в степень Y. Напишите инструкции ввода числа Y и вывода результата выполнения метода.</p>
+    <label for="y">Введите число:</label>
+    <input type="number" id="y" required>
+    <button onclick="handle()">Вычислить</button>
+    <p id="result"></p>
+</body>
+
+</html>

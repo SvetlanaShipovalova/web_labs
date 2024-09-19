@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	 <link href="style.css" rel="stylesheet">
+    <title></title>
+</head>
+<body>
+	<p>Перед вами программа, которая сперва запрашивает у пользователя сумму, а потом спрашивает, какую операцию он хочет с ней совершить: внести эту сумму на счет или снять эту сумму со счета. Если сумма снятия превышает баланс, программа выводит сообщение о недостатке средств. Вставьте вместо троеточий верные инструкции.</p>
+ 
+    <div>
+        <label for="amount">Введите сумму:</label>
+        <input type="number" id="amount" placeholder="Сумма" />
+    </div>
+    <div>
+        <label for="operation">Выберите операцию:</label>
+        <select id="operation">
+            <option value="add">Внести на счет</option>
+            <option value="remove">Снять со счета</option>
+        </select>
+    </div>
+    <button id="submit">Подтвердить</button>
+    <p id="message"></p>
+
+    <script>
+        let balance = 0;
+
+        document.getElementById('submit').onclick = function() {
+            const amount = parseFloat(document.getElementById('amount').value);
+            const operation = document.getElementById('operation').value;
+            const messageElement = document.getElementById('message');
+
+            if (isNaN(amount) || amount <= 0) {
+                messageElement.textContent = "Введите корректную сумму.";
+                return;
+            }
+
+            if (operation === 'add') {
+                balance += amount;
+                messageElement.textContent = `Вы внесли ${amount}. Текущий баланс: ${balance}.`;
+            } else if (operation === 'remove') {
+                if (amount > balance) {
+                    messageElement.textContent = "Недостаточно средств на счете.";
+                } else {
+                    balance -= amount;
+                    messageElement.textContent = `Вы сняли ${amount}. Текущий баланс: ${balance}.`;
+                }
+            }
+        };
+    </script>
+</body>
+</html>

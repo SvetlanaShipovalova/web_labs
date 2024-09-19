@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <h1>Проверка существования треугольника</h1>
+    <p>
+		Напишите программу, которая запрашивает у пользователя длины трех сторон треугольника и объявляет функцию
+        checkTriangleExistence, которая принимает длины сторон в качестве параметров и возвращает сообщение о том,
+        существует ли треугольник с такими сторонами или нет.
+
+        Чтобы проверить треугольник на существование, нужно сравнить каждую сторону с суммой двух других. Если хотя бы в
+        одном случае сторона окажется больше либо равна сумме двух других, то треугольника с такими сторонами не
+        существует.</p>
+    <label for="sideA">A:</label>
+    <input type="number" id="sideA" required><br>
+
+    <label for="sideB">B:</label>
+    <input type="number" id="sideB" required><br>
+
+    <label for="sideC">C:</label>
+    <input type="number" id="sideC" required><br>
+
+    <button onclick="checkTriangle()">Проверить существование треугольника</button>
+
+    <p id="result"></p>
+
+    <script>
+        function checkTriangle() {
+            const a = parseFloat(document.getElementById('sideA').value);
+            const b = parseFloat(document.getElementById('sideB').value);
+            const c = parseFloat(document.getElementById('sideC').value);
+
+            if (a + b > c && a + c > b && b + c > a) {
+                document.getElementById('result').innerText = "Треугольник с такими сторонами существует.";
+            } else {
+                document.getElementById('result').innerText = "Треугольник с такими сторонами не существует.";
+            }
+        }
+    </script>
+</body>
+
+</html>
