@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таблица Пифагора</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #000;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Таблица Пифагора</h1>
+    <label for="size">Введите размер N:</label>
+    <input type="number" id="size" min="1">
+    <button onclick="generateTable()">Сгенерировать таблицу</button>
+
+    <div id="tableContainer"></div>
+
+    <script>
+        function generateTable() {
+            const size = parseInt(document.getElementById('size').value);
+            const container = document.getElementById('tableContainer');
+            container.innerHTML = '';
+
+            if (!size || size <= 0) {
+                alert('Пожалуйста, введите положительное целое число.');
+                return;
+            }
+
+            let table = '<table>';
+
+            table += '<tr><th></th>';
+            for (let i = 1; i <= size; i++) {
+                table += `<th>${i}</th>`;
+            }
+            table += '</tr>';
+
+            for (let i = 1; i <= size; i++) {
+                table += `<tr><th>${i}</th>`;
+                for (let j = 1; j <= size; j++) {
+                    table += `<td>${i * j}</td>`;
+                }
+                table += '</tr>';
+            }
+            table += '</table>';
+
+            container.innerHTML = table;
+        }
+    </script>
+
+</body>
+
+</html>

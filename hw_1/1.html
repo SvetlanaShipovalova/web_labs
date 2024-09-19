@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<link href="style.css" rel="stylesheet">
+
+<body>
+	<div class="passport">
+		<img class="background" style="position: absolute; z-index: -1;"
+			src="https://grizly.club/uploads/posts/2022-12/1670140902_grizly-club-p-shablon-pasporta-4.jpg"
+			alt="Passport Template">
+		<div id="img"></div>
+		<div class="passport_info surname" id="surname">Архипов</div>
+		<div class="passport_info name" id="name">Давид</div>
+		<div class="passport_info patronymic" id="patronymic">Рафаилович</div>
+		<div class="passport_info gender" id="gender">муж</div>
+		<div class="passport_info birthdate" id="birthdate">17.05.1980</div>
+		<div class="passport_info birthplace" id="birthplace">Воронеж</div>
+		<div class="passport_info given" id="given">ГУ МВД РОССИИ </div>
+		<div class="passport_info date_given" id="date_given">23.12.1999</div>
+		<div class="passport_info code" id="code"> 346-123 </div>
+		<button onclick="toggleLanguage()">Изменить язык/Change language</button>
+		<script>
+			const textContent = {
+				russian: {
+					surname: 'Архипов',
+					name: 'Давид',
+					patronymic: 'Рафаилович',
+					gender: 'муж',
+					birthdate: '17.05.1980',
+					birthplace: 'Воронеж',
+					given: 'ГУ МВД РОССИИ',
+					date_given: '23.12.1999',
+					code: '346-123',
+				},
+				english: {
+					surname: 'Arhipov',
+					name: 'David',
+					patronymic: 'Rafailovich',
+					gender: 'male',
+					birthdate: '17.05.1980',
+					birthplace: 'Voronezh',
+					given: 'GU MINISTRY OF INTERNAL AFfAIRS  OF RUSSIA',
+					date_given: '23.12.1999',
+					code: '346-123',
+				},
+			};
+			let currentLanguage = 'russian';
+			function toggleLanguage() {
+				currentLanguage = currentLanguage === 'russian' ? 'english' : 'russian';
+				document.getElementById('surname').innerText = textContent[currentLanguage].surname; document.getElementById('name').innerText = textContent[currentLanguage].name; document.getElementById('patronymic').innerText = textContent[currentLanguage].patronymic; document.getElementById('gender').innerText = textContent[currentLanguage].gender; document.getElementById('birthdate').innerText = textContent[currentLanguage].birthdate; document.getElementById('birthplace').innerText = textContent[currentLanguage].birthplace; document.getElementById('given').innerText = textContent[currentLanguage].given; document.getElementById('date_given').innerText = textContent[currentLanguage].date_given; document.getElementById('code').innerText = textContent[currentLanguage].code;
+			}
+		</script>
+	</div>
+</body>
+
+</html>

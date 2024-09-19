@@ -1,0 +1,69 @@
+	#surname {
+		position: fixed;
+		margin-top: 407px;
+		margin-left: 220px;
+	}
+
+	#img {
+		position: fixed;
+		background-image: url(https://sun9-21.userapi.com/impf/J4YWO43VcpZ9J-NALsFAeO8gmbGeE9zKzmgjwg/5KrsVCBKjgk.jpg?size=147x187&quality=96&sign=5ca6baef9e8b5dcea17928d731f53f2c&type=album);
+		width: 147px;
+		height: 187px;
+		margin-top: 433px;
+		margin-left: 22px;
+	}
+
+	#name {
+		position: fixed;
+		margin-top: 462px;
+		margin-left: 220px;
+	}
+
+	#patronymic {
+		position: fixed;
+		margin-top: 490px;
+		margin-left: 220px;
+	}
+
+	#gender {
+		position: fixed;
+		margin-top: 518px;
+		margin-left: 200px;
+	}
+
+	#birthdate {
+		position: fixed;
+		margin-top: 518px;
+		margin-left: 300px;
+	}
+
+	#birthplace {
+		position: fixed;
+		margin-top: 546px;
+		margin-left: 220px;
+	}
+
+	#given {
+		position: fixed;
+		margin-top: 76px;
+		margin-left: 120px;
+	}
+
+	#date_given {
+		position: fixed;
+		margin-top: 158px;
+		margin-left: 110px;
+	}
+
+	#code {
+		position: fixed;
+		margin-top: 158px;
+		margin-left: 315px;
+	}
+
+	button {
+		position: fixed;
+		margin-top: 660px;
+		margin-left: 165px;
+		padding: 10px;
+	}
