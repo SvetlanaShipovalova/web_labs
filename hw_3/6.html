@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Домашняя работа №3.6</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+	<h3>Задание №6</h3>
+    <h4>Найти группу с наибольшим количеством концертов в 2023 году</h4>
+    <textarea id="concertsInput" placeholder="Введите данные о концертах..."></textarea><br>
+    <button onclick="findGroup()">Найти группу</button>
+    <p id="result"></p>
+
+    <script>
+        function findGroup() {
+            const input = document.getElementById('concertsInput').value.trim().split('\n');
+            const concertCount = {};
+            let ended = false;
+
+            for (let i = 0; i < input.length; i++) {
+                const line = input[i].trim();
+
+                if (line === 'END') {
+                    ended = true;
+                    break;
+                }
+
+                const parts = line.split(', ');
+                if (parts.length !== 2) {
+                    document.getElementById('result').textContent = `Ошибка: неправильный формат ввода в строке ${i + 1}`;
+                    return;
+                }
+
+                const group = parts[0];
+                const date = parts[1];
+
+                const datePattern = /^\d{2}\.\d{2}\.\d{4}$/;
+                if (!datePattern.test(date)) {
+                    document.getElementById('result').textContent = `Ошибка: неправильный формат даты в строке ${i + 1}`;
+                    return;
+                }
+
+                const year = date.split('.')[2];
+                if (year === '2023') {
+                    if (concertCount[group]) {
+                        concertCount[group]++;
+                    } else {
+                        concertCount[group] = 1;
+                    }
+                }
+            }
+
+            if (!ended) {
+                document.getElementById('result').textContent = 'Ошибка: отсутствует "END" для завершения ввода.';
+                return;
+            }
+
+            let maxConcerts = 0;
+            let bestGroup = '';
+            for (const group in concertCount) {
+                if (concertCount[group] > maxConcerts) {
+                    maxConcerts = concertCount[group];
+                    bestGroup = group;
+                }
+            }
+
+            document.getElementById('result').textContent = bestGroup
+                ? `${bestGroup} ${maxConcerts}`
+                : 'Группа не найдена';
+        }
+    </script>
+</body>
+</html>

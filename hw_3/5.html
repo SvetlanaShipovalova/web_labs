@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Домашняя работа №3.5</title>
+     <link href="style.css" rel="stylesheet">
+</head>
+<body>
+	<h3>Задание №5</h3>
+    <h4>Подсчет калорийности продуктов</h4>
+    <p>Введите названия продуктов через пробел:</p>
+    <input type="text" id="productNames" placeholder="Пример: банан мандарин кефир курочка" style="width: 600px;"><br>
+
+    <p>Введите значения белков, жиров и углеводов для каждого продукта (в формате 'белки-жиры-углеводы'):</p>
+    <input type="text" id="productValues" placeholder="Пример: 120-130-190 156-182-190 120-145-90 139-129-102" style="width: 600px;"><br>
+
+    <button onclick="findLowestCalorieProduct()">Рассчитать</button>
+
+    <p id="result"></p>
+
+    <script>
+        function findLowestCalorieProduct() {
+
+            const names = document.getElementById("productNames").value.split(" "); 
+            const values = document.getElementById("productValues").value.split(" "); 
+			
+			
+            if (names.length !== values.length) {
+                document.getElementById("result").textContent = "Количество продуктов и значений не совпадает!";
+                return; 
+            }
+
+
+            let minCalories = Infinity; 
+            let lowestCalorieProduct = ''; 
+
+            for (let i = 0; i < names.length; i++) { 
+                const [proteins, fats, carbs] = values[i].split('-').map(Number); 
+				
+                if (isNaN(proteins) || isNaN(fats) || isNaN(carbs)) {
+                    document.getElementById("result").textContent = "Ошибка ввода данных!";
+                    return; 
+					
+                }
+
+                const calories = 0.4 * proteins + 0.3 * fats + 0.3 * carbs; 
+				
+                if (calories < minCalories) {
+                    minCalories = calories;
+                    lowestCalorieProduct = names[i]; 
+                }
+            }
+
+            document.getElementById("result").textContent = `Самый низкокалорийный продукт: ${lowestCalorieProduct}`;
+        }
+    </script>
+</body>
+</html>

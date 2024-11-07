@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Домашняя работа №3.2</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+	<h3>Задание №2</h3>
+    <h4>Проверка палиндрома</h4>
+    <input type="text" id="sentenceInput" placeholder="Введите слово или предложение" style="width:350px;">
+    <button onclick="checkPalindrome()">Проверить</button>
+    <p id="result"></p>
+
+    <script>
+        function isPalindrome(sentence) {
+            let cleanedSentence = "";
+            let reversedSentence = "";
+			
+            for (let i = 0; i < sentence.length; i++) {
+                const char = sentence[i].toLowerCase();
+                if (char !== ' ') {
+                    cleanedSentence += char;
+                }
+            }
+			
+            for (let i = cleanedSentence.length - 1; i >= 0; i--) {
+                reversedSentence += cleanedSentence[i];
+            }
+			
+            return cleanedSentence === reversedSentence;
+        }
+
+        function checkPalindrome() {
+            const sentence = document.getElementById('sentenceInput').value.trim();
+            const resultElement = document.getElementById('result');
+
+            if (sentence === "") {
+                resultElement.textContent = "Введите слово или предложение.";
+                resultElement.style.color = 'blue';
+            } else if (isPalindrome(sentence)) {
+                resultElement.textContent = "Палиндромом.";
+                resultElement.style.color = 'green';
+            } else {
+                resultElement.textContent = "Не является пандромом.";
+                resultElement.style.color = 'red';
+            }
+        }
+    </script>
+</body>
+</html>

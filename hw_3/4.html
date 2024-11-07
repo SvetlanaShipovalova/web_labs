@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Домашняя работа №3.4</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+	<h3>Задание №4</h3>
+    <h4>Калькулятор максимальной прибыли</h4>
+
+    <div>
+        <input type="text" id="inputField" placeholder="Введите товар, прибыль" style="height:200px;"><br>
+        <button onclick="addEntry()">Добавить запись</button>
+    </div>
+
+    <div id="entries"></div>
+    <div id="result"></div>
+
+    <script>
+        let data = [];
+
+        function addEntry() {
+            const input = document.getElementById('inputField').value.trim(); 
+            if (input.toUpperCase() === "END") { 
+                calculateMaxProfit();
+                return;
+            }
+
+            if (input !== "") { 
+                const entry = input.split(','); 
+                if (entry.length === 2 && !isNaN(parseInt(entry[1]))) { 
+
+                    data.push({name: entry[0], profit: parseInt(entry[1])}); 
+                    document.getElementById('entries').innerHTML += `<p>${entry[0]}, ${entry[1]}</p>`; 
+                    document.getElementById('inputField').value = "";
+                } else {
+                    alert("Неверный ввод. Введите в формате: Товар,Прибыль");
+                }
+            }
+        }
+
+        function calculateMaxProfit() {
+            const profitMap = {}; 
+            data.forEach(entry => {
+                if (profitMap[entry.name]) {
+                    profitMap[entry.name] += entry.profit; 
+                } else {
+                    profitMap[entry.name] = entry.profit; 
+                }
+            });
+
+            let maxProfit = -Infinity; 
+            let maxItem = ''; 
+
+            for (const [item, profit] of Object.entries(profitMap)) {
+                if (profit > maxProfit) {
+                    maxProfit = profit;
+                    maxItem = item;
+                }
+            }
+
+            document.getElementById('result').innerHTML = `<p>Товар с максимальной прибылью: ${maxItem}, ${maxProfit}</p>`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Домашняя работа №3.1</title>
+   <link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+<h3>Задание №1</h3>
+<h4>Игра Угадайка</h4>
+
+<p>Введите число от 1 до 10:</p>
+<input type="number" id="userGuess" min="1" max="10" placeholder="Число" style="width:100px;">
+<button onclick="checkGuess()">Угадать</button>
+
+<p id="result"></p>
+<p id="attempts">Осталось попыток: 3</p>
+
+<script>
+    let randomNumber = Math.floor(Math.random() * 10) + 1;
+    let attempts = 3;
+
+    function checkGuess() {
+        let userGuess = document.getElementById('userGuess').value;
+        if (userGuess === "") {
+            document.getElementById('result').textContent = "Введите число!";
+            return;
+        }
+        userGuess = parseInt(userGuess);
+		
+        if (userGuess < 1 || userGuess > 10) {
+            document.getElementById('result').textContent = "Число должно быть в диапазоне от 1 до 10!";
+            return;
+        }
+
+        if (userGuess === randomNumber) {
+            document.getElementById('result').textContent = "Поздравляем! Вы угадали!";
+            document.getElementById('attempts').textContent = "";
+        } else {
+            attempts--;
+            if (attempts > 0) {
+                if (userGuess < randomNumber) {
+                    document.getElementById('result').textContent = "Слишком мало! Попробуйте еще раз.";
+                } else {
+                    document.getElementById('result').textContent = "Слишком много! Попробуйте еще раз.";
+                }
+                document.getElementById('attempts').textContent = `Осталось попыток: ${attempts}`;
+            } else {
+                document.getElementById('result').textContent = `Вы проиграли! Загаданное число было ${randomNumber}.`;
+                document.getElementById('attempts').textContent = "";
+            }
+        }
+    }
+</script>
+</body>
+</html>

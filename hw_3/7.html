@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Домашняя работа №3.7</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+	<h3>Задание №7</h3>
+    <h4>Анализ товаров</h4>
+
+    <input type="text" id="inputData" placeholder="Введите данные о товарах" size="50">
+    <br>
+    <button onclick="analyzeProducts()">Анализировать</button>
+
+    <p id="result"></p>
+
+    <script>
+        function analyzeProducts() {
+            const input = document.getElementById('inputData').value;
+            const items = input.split('; '); 
+
+            let productList = []; 
+            let hasError = false; 
+			
+            items.forEach(item => {
+                let [name, prices] = item.split(':'); 
+
+                let priceArray = prices.split(',').map(Number); 
+                if (priceArray.length !== 3) {
+                    hasError = true;
+                } else {
+                    let avgPrice = priceArray.reduce((a, b) => a + b, 0) / priceArray.length; 
+                    productList.push({ name: name, avgPrice: avgPrice }); 
+					
+                }
+            });
+
+            if (hasError) {
+                document.getElementById('result').innerHTML = "Ошибка: Для каждого товара должны быть указаны три цены.";
+            } else {
+                productList.sort((a, b) => a.avgPrice === b.avgPrice ? a.name.localeCompare(b.name) : a.avgPrice - b.avgPrice);
+
+                let result = productList.map(product => product.name).join('<br>');
+                document.getElementById('result').innerHTML = result;
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Домашняя работа №3.3</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+	<h3>Задание №3</h3>
+    <h4>Подсчет среднего балла учеников</h4>
+
+    <p>Введите имена учеников через запятую и пробел:</p>
+    <input type="text" id="names" placeholder="Например: Алина, Маша, Игорь" size="50">
+
+    <p>Введите оценки учеников через пробел (каждая группа оценок через дефис):</p>
+    <input type="text" id="grades" placeholder="Например: 30-10-20 78-23-43 15-18-10" size="50">
+
+    <br>
+    <button onclick="calculateLowest()">Найти самого отстающего ученика</button>
+    <p id="result"></p>
+
+    <script>
+        function calculateLowest() {
+
+            let namesInput = document.getElementById('names').value.split(', ').map(name => name.trim()); 
+            let gradesInput = document.getElementById('grades').value.split(' '); 
+			
+            if (namesInput.length === 0 || gradesInput.length === 0) {
+                document.getElementById('result').innerText = 'Пожалуйста, введите хотя бы одного ученика и его оценки.';
+                return;
+            }
+
+            if (namesInput.length !== gradesInput.length) {
+                document.getElementById('result').innerText = 'Количество учеников и количество наборов оценок должно совпадать.';
+                return;
+            }
+
+            let uniqueNames = new Set(namesInput);
+            if (uniqueNames.size !== namesInput.length) {
+                document.getElementById('result').innerText = 'Имена учеников не должны повторяться.';
+                return;
+            }
+
+            let lowestAverage = Infinity;
+            let lowestStudent = '';
+
+            for (let i = 0; i < namesInput.length; i++) { 
+
+                let grades = gradesInput[i].split('-').map(Number); 
+				
+                if (grades.length !== 3 || grades.some(isNaN)) {
+                    document.getElementById('result').innerText = 'Каждый ученик должен иметь три числовых оценки.';
+                    return;
+                }
+
+                let average = grades.reduce((a, b) => a + b, 0) / grades.length; 
+
+                if (average < lowestAverage) { 
+                    lowestAverage = average;
+                    lowestStudent = namesInput[i]; 
+                }
+            }
+
+            document.getElementById('result').innerText = 'Самый отстающий ученик: ' + lowestStudent;
+        }
+    </script>
+</body>
+</html>
