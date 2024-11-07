@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сортировка карточек</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="sort-options">
+        <table>
+            <tr>
+                <th>Имя:</th>
+                <th><button onclick="sortData('planetname', 'asc')">По возрастанию</button></th>
+                <th><button onclick="sortData('planetname', 'desc')">По убыванию</button></th>
+            </tr>
+
+            <tr>
+                <th>Масса:</th>
+                <td><button onclick="sortData('mass', 'asc')">По возрастанию</button></td>
+                <td><button onclick="sortData('mass', 'desc')">По убыванию</button></td>
+            </tr>
+            <tr>
+                <th>Температура:</th>
+                <td><button onclick="sortData('temperature', 'asc')">По возрастанию</button></td>
+                <td><button onclick="sortData('temperature', 'desc')">По убыванию</button></td>
+            </tr>
+        </table>
+
+    </div>
+
+    <div id="cards-container"></div>
+
+    <script>
+        let data = [];
+
+        function fetchData() {
+            fetch('data.json')
+                .then(response => response.json())
+                .then(jsonData => {
+                    data = jsonData;
+                    displayData(data);
+                })
+                .catch(error => console.error('Ошибка загрузки данных:', error));
+        }
+
+        function displayData(items) {
+            const container = document.getElementById('cards-container');
+            container.innerHTML = '';
+
+            items.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <img  src="${item.image}" alt="${item.planetname}">
+                    <h2>${item.planetname}</h2>
+                    <p>Масса: ${item.mass} Earth Masses</p>
+                    <p>Температура: ${item.temperature} °C</p>
+                    <p>Удаленность: ${item.distancefromearth}</p> <hr> <p>${item.description}</p>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function sortData(field, order) {
+            data.sort((a, b) => {
+                if (order === 'asc') {
+                    return a[field] > b[field] ? 1 : -1;
+                } else {
+                    return a[field] < b[field] ? 1 : -1;
+                }
+            });
+            displayData(data);
+        }
+        window.onload = fetchData;
+    </script>
+
+</body>
+
+</html>
