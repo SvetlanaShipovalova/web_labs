@@ -1,0 +1,44 @@
+    .card {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 16px;
+      margin: 16px;
+      max-width: 300px;
+      text-align: center;
+      position: relative;
+      display: inline-block;
+	  font-size: 16px;
+	  background-color: darkslateblue;
+	  color: aliceblue;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+	  background-color: azure;
+    }
+
+    input {
+      margin: 15px;
+      color: #6e6e6e;
+      border: 1px solid #cccccc;
+      border-radius: 4px;
+      transition: 1s;
+    }
+
+
+    button {
+      padding: 10px;
+      font-size: 1.0em;
+      color: #fff;
+      cursor: pointer;
+      background-color: #004B63;
+    }
+
+ 

@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "planetname": "Kepler-186f",
+        "img": "https://avatars.mds.yandex.net/i?id=5529e7aaf06b32fdbb481c6edd6b70a6_l-10952956-images-thumbs&n=13",
+        "description": "Экзопланета, вращающаяся вокруг красного карлика Kepler-186, на расстоянии около 500 световых лет от Земли.",
+        "mass": 1.44,
+        "chemicalcomposition": "В основном состоит из камня и металла",
+        "temperature": -64,
+        "distancefromearth": "500 световых лет"
+    },
+    {
+        "id": 2,
+        "planetname": "HD 189733b",
+        "img": "https://www.cumhuriyet.com.tr/Archive/2024/1/3/120847472-hd.jpg",
+        "description": "Голубая экзопланета, расположенная на расстоянии примерно 63 световых лет от нас в созвездии Vulpecula.",
+        "mass": 1.13,
+        "chemicalcomposition": "В основном состоит из газа",
+        "temperature": 930,
+        "distancefromearth": "63 световых лет"
+    },
+    {
+        "id": 3,
+        "planetname": "WASP-12b",
+        "img": "https://avatars.dzeninfra.ru/get-zen_doc/9811263/pub_6438394a8780bd55722f753e_64383a0a2b8a2569a67d64b5/scale_2400",
+        "description": "Экзопланета класса горячий Юпитер, открытая в 2008 году, расположенная на расстоянии около 1400 световых лет от нас в созвездии Auriga.",
+        "mass": 1.4,
+        "chemicalcomposition": "Богат углеродом",
+        "temperature": 2200,
+        "distancefromearth": "1,400 световых лет"
+    },
+    {
+		"id": 4,
+        "planetname": "TRAPPIST-1e",
+        "img": "https://avatars.mds.yandex.net/i?id=c9560654bbbc1c7bd04f30f98ea75f91_l-5350111-images-thumbs&n=13",
+        "description": "Экзопланета земного типа, вращающаяся вокруг ультрахолодной карликовой звезды TRAPPIST-1, расположенной на расстоянии около 39 световых лет от Земли.",
+        "mass": 0.62,
+        "chemicalcomposition": "Содержит воду и камень",
+        "temperature": -40,
+        "distancefromearth": "39 световых лет"
+    },
+    {
+		"id": 5,
+        "planetname": "Proxima Centauri b",
+        "img": "https://i.insider.com/57bdc94a8d3eaec77f1c07ef?width=1200&format=jpeg",
+        "description": "Экзопланета, вращающаяся вокруг красного карлика Проксимы Центавра, ближайшей из известных экзопланет к Солнечной системе.",
+        "mass": 5.972,
+        "chemicalcomposition": "Возможно, каменистая, с атмосферой",
+        "temperature": 45,
+        "distancefromearth": "4.24 световых лет"
+    },
+    {
+		"id": 6,
+        "planetname": "51 Pegasi b",
+        "img": "https://i.ytimg.com/vi/8XI3wARIEbE/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGEogSihlMA8=&amp;rs=AOn4CLBTwu7J_xg-fmToJA0X48Dy8C9TBw",
+        "description": "Была первой открытой экзопланетой, обращающейся вокруг солнцеподобной звезды, расположенной на расстоянии около 50 световых лет от нас в созвездии Пегаса.",
+        "mass": 0.47,
+        "chemicalcomposition": "Горячий Юпитер с газообразным составом",
+        "temperature": 1000,
+        "distancefromearth": "50 световых лет"
+    },
+    {
+		"id": 6,
+        "planetname": "Tau Ceti e",
+        "img": "https://i.ytimg.com/vi/g4AzhHXHROw/maxresdefault.jpg",
+        "description": "Экзопланета, похожая на суперземлю, расположенная в системе Тау Кита, примерно в 12 световых годах от Земли.",
+        "mass": 4.2,
+        "chemicalcomposition": "Возможно, каменистый с примесью воды",
+        "temperature": -50,
+        "distancefromearth": "12 световых лет"
+    }
+]

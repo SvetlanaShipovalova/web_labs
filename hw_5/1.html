@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Лаба 5</title>
+	<link href="style.css" rel="stylesheet">
+</head>
+<body>
+<div id="app" >
+	  <div>
+        <input type="text" v-model="searchString" placeholder="Поиск по названию или описанию" style="width: 400px; min-height: 40px;">
+    </div>
+
+    <div>
+        <label>
+            <input type="radio" value="mass" v-model="sortKey"> Сортировка по массе
+        </label>
+        <label class="mx-2">
+            <input type="radio" value="planetname" v-model="sortKey"> Сортировка по названию
+        </label>
+    </div>
+
+
+	
+    <ul >
+        <li v-for="planet in sortedPlanets" :key="planet.id"  class="card">
+            <img :src="planet.img" :alt="planet.planetname " style="height: 200px;">
+            <div>
+				<p> {{ planet.planetname }}</p>
+				<hr>
+				<p> Масса планеты: <br> {{ planet.mass }}</p>
+				<p> Описание: <br> {{ planet.description }}</p>
+				<p> Особенность экзопланеты: <br> {{ planet.chemicalcomposition }}</p>
+            </div>
+        </li>
+    </ul>
+  
+</div>
+
+<script type="module" src="cosmo.js"></script>
+
+</body>
+</html>
