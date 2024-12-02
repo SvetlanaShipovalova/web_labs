@@ -100,7 +100,7 @@ li.selected {
 
 .remove-task-container {
   display: flex;
-  justify-content: center; /* Центрируем кнопку удаления */
+  justify-content: center; 
   margin-top: 20px;
 }
 </style>
