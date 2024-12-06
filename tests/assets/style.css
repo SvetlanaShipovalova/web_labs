@@ -1,0 +1,122 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+  background-color: #fdecfd; 
+  color: #4a4a4a; /* Темно-серый цвет для текста */
+}
+
+#app {
+  text-align: center;
+}
+
+h1 {
+  margin-top: 10px;
+  color: #000000; /* Сиреневый цвет для заголовков */
+}
+
+h2 {
+  margin: 10px;
+  color: #000000; /* Тёмно-охровый для подзаголовков */
+}
+
+.btn {
+  background-color: #7fbc5a; /* Фисташковый цвет для кнопок */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 16px;
+}
+
+.btn:hover {
+  background-color: #6da84a; /* Тёмно-фисташковый при наведении */
+}
+
+.game-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s; /* Плавный переход */
+  margin: 10px;
+}
+
+.card.matched {
+  background-color: #a3d39c; /* Фисташковый цвет при совпадении */
+}
+
+.card img {
+  max-width: 120px;
+  max-height: 120px;
+  border-radius: 5px;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sound-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+audio {
+  margin: 10px;
+  height: 30px;
+}
+
+button {
+  border-radius: 5px;
+  width: 150px;
+  padding: 10px 20px !important;
+  border: 0;
+  margin: 5px;
+  background-color: #45a049;/* Сиреневый для кнопок */
+  color: white;
+  border: none;
+  padding: 2px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px 2px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #b14bb0; /* Тёмный сиреневый при наведении */
+}
+
+.game-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.animal-cards {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.sound-cards {
+  flex: 1;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
