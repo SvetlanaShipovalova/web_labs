@@ -99,7 +99,7 @@ export default {
       this.shuffledSounds = this.sounds.sort(() => Math.random() - 0.5);
     },
     selectAnimal(animal) {
-      if (this.isMatched(animal)) return; // Не позволяем выбрать уже подобранное животное
+      if (this.isMatched(animal)) return; 
       this.selectedAnimal = animal;
       this.checkMatch();
     },
@@ -109,7 +109,6 @@ export default {
     },
     checkMatch() {
       if (this.selectedAnimal && this.selectedSound) {
-        // Проверяем, не была ли пара уже подобрана
         if (this.selectedAnimal.name === this.selectedSound.name && !this.isMatched(this.selectedAnimal)) {
           this.matchedPairs.push(this.selectedAnimal);
           this.score++;
@@ -117,9 +116,8 @@ export default {
         this.selectedAnimal = null;
         this.selectedSound = null;
 
-        // Проверяем, собраны ли все карточки
         if (this.matchedPairs.length === this.animals.length) {
-          this.endGame(); // Завершаем игру, если все пары собраны
+          this.endGame(); 
         }
       }
     },
@@ -144,21 +142,20 @@ export default {
       this.timeLeft = 60;
       this.matchedPairs = [];
       this.gameFinished = false;
-      this.gameStarted = false; // Сбрасываем состояние начала игры
-      this.shuffleAnimals(); // Перемешиваем животных при перезапуске
-      this.shuffleSounds(); // Перемешиваем звуки при перезапуске
+      this.gameStarted = false; 
+      this.shuffleAnimals(); 
+      this.shuffleSounds(); 
     },
     startGame() {
-      this.gameStarted = true; // Устанавливаем флаг, что игра началась
-      this.shuffleAnimals(); // Перемешиваем животных при начале игры
-      this.shuffleSounds(); // Перемешиваем звуки при начале игры
-      this.startTimer(); // Запускаем таймер
+      this.gameStarted = true; 
+      this.shuffleAnimals(); 
+      this.shuffleSounds(); 
+      this.startTimer(); 
     },
   },
   mounted() {
-    // Здесь можно оставить только начальную настройку, если необходимо
-    this.shuffleAnimals(); // Перемешиваем животных при загрузке
-    this.shuffleSounds(); // Перемешиваем звуки при загрузке
+    this.shuffleAnimals(); 
+    this.shuffleSounds(); 
   },
 };
 </script>
@@ -171,17 +168,17 @@ export default {
 }
 
 .animal-cards {
-  flex: 1; /* Занимает 1 часть пространства */
-  margin-right: 20px; /* Отступ справа для разделения с колонкой звуков */
+  flex: 1; 
+  margin-right: 20px; 
 }
 
 .sound-cards {
-  flex: 0.5; /* Занимает 1 часть пространства */
+  flex: 0.5; 
 }
 
 .card-container {
   display: flex;
-  flex-wrap: wrap; /* Позволяет карточкам занимать несколько строк */
+  flex-wrap: wrap; 
   margin-left: 10%;
 }
 
