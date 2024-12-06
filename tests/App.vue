@@ -13,15 +13,17 @@
 <script>
 import AnimalSoundGame from './components/AnimalSoundGame.vue';
 import TestRavena from './components/TestRavena.vue';
+import LogicalTest from './components/LogicalTest.vue';
 
 export default {
   components: {
     AnimalSoundGame,
     TestRavena,
+    LogicalTest,
   },
   data() {
     return {
-      games: ['AnimalSoundGame', 'TestRavena'], 
+      games: ['AnimalSoundGame', 'TestRavena', 'LogicalTest'], 
       currentGameIndex: 0,
     };
   },
