@@ -14,16 +14,20 @@
 import AnimalSoundGame from './components/AnimalSoundGame.vue';
 import TestRavena from './components/TestRavena.vue';
 import LogicalTest from './components/LogicalTest.vue';
+import AttentionTest from './components/AttentionTest.vue';
+import CoordTest from './components/CoordTest.vue';
 
 export default {
   components: {
     AnimalSoundGame,
     TestRavena,
     LogicalTest,
+    CoordTest,
+    AttentionTest,
   },
   data() {
     return {
-      games: ['AnimalSoundGame', 'TestRavena', 'LogicalTest'], 
+      games: ['AnimalSoundGame', 'TestRavena', 'LogicalTest', 'AttentionTest', 'CoordTest'], 
       currentGameIndex: 0,
     };
   },
